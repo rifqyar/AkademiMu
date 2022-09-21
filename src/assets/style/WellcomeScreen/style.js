@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native'
 import { COLORS, FONTS, SIZES } from '../../theme'
 
 const SplashScreenStyle = ({...props}) => {
-    const {changeColor, moveTitle, opacityLogo, scaleText, textChange} = props
+    const {changeColor, moveTitle, opacityLogo, scaleText, textChange, startAnimation, contentTransition} = props
     return StyleSheet.create({
         mainContainer: {
             position: 'absolute',
@@ -10,13 +10,20 @@ const SplashScreenStyle = ({...props}) => {
             bottom: 0,
             left: 0,
             right: 0,
-            backgroundColor: changeColor
+            backgroundColor: changeColor,
         },
         mainContent: {
             flex: 1,
-            alignItems: 'center',
-            justifyContent: 'center'
+            zIndex: 1,
+            transform: [
+                {translateY: startAnimation}
+            ]
         },
+        headerContainer: {
+            flex: 1,
+            alignItems: 'center',
+            justifyContent: 'center',
+        },  
         imageStyling: {
             height: SIZES.width / 2.5,
             width: SIZES.width / 2.5,
@@ -35,6 +42,14 @@ const SplashScreenStyle = ({...props}) => {
         },
         headline2: {
             color: COLORS.darkAmber
+        },
+        contentContainer:{
+            justifyContent: 'center',
+            alignItems: 'center',
+            opacity: contentTransition
+            // transform:[
+            //     {translateY: contentTransition}
+            // ],
         }
     })
 }

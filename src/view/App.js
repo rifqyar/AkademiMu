@@ -4,7 +4,7 @@ import {
     Text 
 } from 'react-native'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
-import SplashScreen from './components/SplashScreen'
+import SplashScreen from './components/WellcomePageComponent/SplashScreen'
 
 const App = () => {
   return (
